@@ -127,31 +127,6 @@ export default function Focus() {
     localStorage.setItem(TIMER_STATE_KEY, JSON.stringify(timerState))
   }, [status, endTime, remainingSeconds, mode, focusMinutes, breakMinutes, selectedTaskId])
 
-  // 计时器核心逻辑
-  useEffect(() => {
-    if (status !== 'running') return
-
-    const interval = setInterval(() => {
-      const now = Date.now()
-      const remaining = Math.max(0, Math.ceil((endTime - now) / 1000))
-
-      setRemainingSeconds(remaining)
-
-      if (remaining <= 0) {
-        handleTimerComplete()
-      }
-    }, 250)
-
-    return () => clearInterval(interval)
-  }, [status, endTime])
-
-  // 保存状态变化
-  useEffect(() => {
-    if (status === 'running') {
-      saveTimerState()
-    }
-  }, [status, endTime, saveTimerState])
-
   // 处理计时完成
   const handleTimerComplete = useCallback((timerState?: TimerState) => {
     const currentMode = timerState?.mode || mode
@@ -195,6 +170,31 @@ export default function Focus() {
     // 清除持久化状态
     localStorage.removeItem(TIMER_STATE_KEY)
   }, [mode, selectedTaskId, focusMinutes, state.tasks, soundEnabled, notificationEnabled, dispatch])
+
+  // 计时器核心逻辑
+  useEffect(() => {
+    if (status !== 'running') return
+
+    const interval = setInterval(() => {
+      const now = Date.now()
+      const remaining = Math.max(0, Math.ceil((endTime - now) / 1000))
+
+      setRemainingSeconds(remaining)
+
+      if (remaining <= 0) {
+        handleTimerComplete()
+      }
+    }, 250)
+
+    return () => clearInterval(interval)
+  }, [status, endTime, handleTimerComplete])
+
+  // 保存状态变化
+  useEffect(() => {
+    if (status === 'running') {
+      saveTimerState()
+    }
+  }, [status, endTime, saveTimerState])
 
   // 开始专注
   const startFocus = useCallback(() => {
