@@ -1,0 +1,150 @@
+/**
+ * 今日学习页样式
+ * 优化：强化信息层级、精致化卡片、提升可读性
+ */
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 28px 20px 32px;
+}
+
+/* ==================== 头部区域 ==================== */
+.header {
+  margin-bottom: 20px;
+}
+
+.greeting {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.3px;
+  line-height: 1.3;
+}
+
+.date {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 4px;
+  font-weight: 400;
+}
+
+/* ==================== 进度卡片 ==================== */
+.progressCard {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+.progressInfo {
+  flex: 1;
+}
+
+.progressTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.progressFraction {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.progressDetail {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* ==================== 统计卡片 ==================== */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 480px) {
+  .stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+}
+
+/* ==================== 任务区域 ==================== */
+.section {
+  margin-bottom: 24px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.taskCount {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 400;
+  margin-left: 6px;
+}
+
+.addBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 16px;
+  background: var(--primary);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+
+.addBtn:hover {
+  background: var(--primary-light);
+}
+
+.addBtn:active {
+  transform: scale(0.96);
+}
+
+/* ==================== 任务列表 ==================== */
+.taskList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ==================== 空状态 ==================== */
+.empty {
+  text-align: center;
+  padding: 56px 16px;
+  color: var(--text-muted);
+}
+
+.emptyIcon {
+  margin-bottom: 12px;
+  opacity: 0.4;
+}
+
+.empty p {
+  font-size: 14px;
+  line-height: 1.6;
+}

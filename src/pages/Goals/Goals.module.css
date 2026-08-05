@@ -1,0 +1,106 @@
+/**
+ * 学习计划页样式
+ */
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 28px 20px 32px;
+}
+
+/* 头部 */
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.addBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  background: var(--primary);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.addBtn:hover {
+  background: var(--primary-light);
+}
+
+.addBtn:active {
+  transform: scale(0.96);
+}
+
+/* 统计卡片 */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 640px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 计划列表 */
+.planList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* 空状态 */
+.empty {
+  text-align: center;
+  padding: 64px 16px;
+  color: var(--text-muted);
+}
+
+.emptyIcon {
+  margin-bottom: 12px;
+  opacity: 0.4;
+}
+
+.empty p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.emptyBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: var(--primary);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.emptyBtn:hover {
+  background: var(--primary-light);
+}

@@ -1,0 +1,147 @@
+/**
+ * 单个任务项样式
+ * 优化：增强完成态区分度，提升交互反馈
+ */
+
+.taskItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  transition: all 0.15s ease;
+}
+
+.taskItem:hover {
+  border-color: var(--primary-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.taskItemCompleted {
+  background: var(--success-bg);
+  border-color: transparent;
+}
+
+.taskItemCompleted:hover {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+/* ==================== 复选框 ==================== */
+.checkbox {
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.checkbox:hover {
+  border-color: var(--primary);
+  transform: scale(1.1);
+}
+
+.checkbox:active {
+  transform: scale(0.95);
+}
+
+.checkbox:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.checkboxChecked {
+  background: var(--success);
+  border-color: var(--success);
+  color: white;
+}
+
+.checkboxChecked:hover {
+  background: var(--success);
+  border-color: var(--success);
+  transform: none;
+}
+
+/* ==================== 任务信息 ==================== */
+.taskInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.taskTitle {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.taskTitleCompleted {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.taskMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.subjectTag {
+  background: var(--primary-bg);
+  color: var(--primary);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.taskItemCompleted .subjectTag {
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--success);
+}
+
+/* ==================== 操作按钮 ==================== */
+.actions {
+  display: flex;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.iconBtn {
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.iconBtn:hover {
+  background: var(--surface-hover);
+  color: var(--primary);
+}
+
+.iconBtn:active {
+  transform: scale(0.92);
+}
+
+.iconBtn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.iconBtnDanger:hover {
+  background: var(--danger-bg);
+  color: var(--danger);
+}

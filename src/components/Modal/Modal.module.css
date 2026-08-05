@@ -1,0 +1,106 @@
+/**
+ * 弹窗组件样式
+ * 优化：添加克制动效过渡（fade + scale）
+ */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 16px;
+  animation: fadeIn 0.15s ease;
+}
+
+.modal {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  width: 100%;
+  max-width: 420px;
+  padding: 24px;
+  animation: scaleIn 0.2s ease;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.btnConfirm {
+  flex: 1;
+  padding: 12px;
+  background: var(--danger);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+
+.btnConfirm:hover {
+  opacity: 0.9;
+}
+
+.btnConfirm:active {
+  transform: scale(0.98);
+}
+
+.btnConfirm:focus-visible {
+  outline: 2px solid var(--danger);
+  outline-offset: 2px;
+}
+
+.btnCancel {
+  flex: 1;
+  padding: 12px;
+  background: var(--surface-hover);
+  color: var(--text);
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+
+.btnCancel:hover {
+  background: var(--border);
+}
+
+.btnCancel:active {
+  transform: scale(0.98);
+}
+
+.btnCancel:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ==================== 动画定义 ==================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
