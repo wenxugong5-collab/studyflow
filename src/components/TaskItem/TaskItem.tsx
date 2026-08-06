@@ -3,6 +3,7 @@
  * 显示任务信息、完成状态和操作按钮
  * 优化：增强完成态视觉区分
  */
+import { memo } from 'react'
 import { Check, Pencil, Trash2 } from 'lucide-react'
 import styles from './TaskItem.module.css'
 
@@ -16,7 +17,7 @@ interface TaskItemProps {
   onDelete: () => void
 }
 
-export default function TaskItem({
+function TaskItemComp({
   title,
   subject,
   duration,
@@ -63,3 +64,7 @@ export default function TaskItem({
     </div>
   )
 }
+
+// 纯展示组件：props 不变时不重渲染，避免列表滚动/父渲染时的开销
+const TaskItem = memo(TaskItemComp)
+export default TaskItem

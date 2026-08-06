@@ -4,6 +4,11 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 // Vite 配置文件
 export default defineConfig({
+  server: {
+    host: '0.0.0.0',
+    port: 5173,
+    allowedHosts: ['localhost', '.serveousercontent.com'],
+  },
   plugins: [
     react(),
     // PWA 插件配置：支持离线缓存和安装到设备
